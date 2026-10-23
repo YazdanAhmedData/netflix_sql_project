@@ -1,55 +1,78 @@
-# Netflix SQL Practice Project | Catalogue Data Exploration
+# 🎬 Netflix SQL Practice | Catalogue Data Exploration
 
-This repository contains a SQL-based exploration of Netflix movie and TV-show catalogue metadata. It addresses common SQL practice questions involving content types, ratings, release years, countries, genres, cast, directors, and text-based categorization.
+![Netflix project logo](https://github.com/YazdanAhmedData/netflix_sql_project/blob/main/logo.png)
 
-> **Portfolio note:** This repository overlaps substantially with [Netflix Content Analysis](https://github.com/YazdanAhmedData/netflix_project_sql). For a recruiter-facing portfolio, consider maintaining one canonical Netflix project with the strongest queries, documentation, and validated findings rather than presenting two near-identical projects as separate case studies.
+> **Portfolio recommendation:** this project overlaps substantially with [Netflix Content Catalogue Analysis](https://github.com/YazdanAhmedData/netflix_project_sql). For a recruiter-facing portfolio, consider combining the strongest schema, queries, screenshots and verified findings into one canonical Netflix project, and using this repository as a practice/archive project.
 
-## Objective
-Practise SQL by answering structured questions from netflix_titles.csv and translating the outputs into understandable observations about the catalogue. This dataset describes catalogue metadata, not Netflix's internal viewing behaviour, revenue, or recommendation algorithms.
+## Executive Summary
+This repository contains a SQL-based exploration of Netflix movie and TV-show catalogue metadata. It addresses 15 business-style questions involving content type, ratings, release years, countries, genres, cast, directors, duration, missing fields and text-based categorisation.
 
-## Dataset
-- netflix_titles.csv — movie and TV-show metadata
-- Common fields include type, title, director, cast, country, date added, release year, rating, duration, and listed genres.
+The dataset describes catalogue metadata; it does **not** show internal viewing counts, watch time, recommendation performance or title profitability.
 
-Inspect the schema and data types before running queries. Multi-value fields and missing values can affect counts.
+## Business Problem
+The project demonstrates how a data analyst can turn an unstructured list of content metadata into a set of reproducible questions. It focuses on catalogue composition, the distribution of content attributes and data quality.
 
-## Questions Covered
-- Movie versus TV-show counts
-- Rating distributions
-- Content by release year and country
-- Longest movie and TV shows with many seasons
-- Genre distributions
-- Director and actor filtering
-- Missing director values
-- Keyword-based title/description categorization
+## Questions & Analytical Areas
+- Movies versus TV shows.
+- Most common ratings by type.
+- Content by release year and country.
+- Longest movie and TV shows with more than five seasons.
+- Genre distribution and director/actor filtering.
+- Indian catalogue entries and documentary titles.
+- Missing director values.
+- Keyword-based description exploration.
 
-## Files
+## KPI / Analysis Framework
+| Measure | Definition | Business use |
+|---|---|---|
+| Content type mix | Count by movie / TV show | Catalogue composition |
+| Rating distribution | Count by rating and type | Classification overview |
+| Country/genre mix | Count titles by parsed value | Catalogue representation |
+| Release-year distribution | Count by release year | Historical content profile |
+| Additions by date | Count by catalogue-added date | Catalogue additions |
+| Missing metadata | Null count/share by field | Data-quality review |
+| Runtime / season count | Parsed duration values | Content characteristics |
+
+## Business Insights & Interpretation
+- Catalogue counts can describe the collection's composition, but they should not be described as popularity or audience demand.
+- Country and genre fields can hold multiple values; normalising these fields changes the unit being counted.
+- Release year and catalogue-added date answer different questions and should not be combined.
+- Missing director information is a data-quality finding that may affect downstream analysis.
+- Keyword-based categories are heuristic and should be labelled as such.
+
+Publish numerical findings only after reproducing the results from the SQL scripts and checking the relevant denominator.
+
+## Repository Files
 | File | Purpose |
 |---|---|
-| Schemas.sql | Schema setup |
-| Business Problems Netflix.sql | Business questions |
-| Solutions of 15 business problems.sql | Query solutions |
-| netflix_titles.csv | Dataset |
-| logo.png | Project image asset |
+| `Schemas.sql` | Table/schema setup |
+| `Business Problems Netflix.sql` | Business questions |
+| `Solutions of 15 business problems.sql` | SQL solutions |
+| `netflix_titles.csv` | Source dataset |
+| `logo.png` | Project image asset |
 
 ## How to Run
-1. Clone or download this repository.
-2. Create the table using Schemas.sql in a compatible SQL environment.
-3. Load the CSV using the import method supported by your database.
-4. Run the statements in Solutions of 15 business problems.sql.
-5. Review the query assumptions, especially date formats, delimited country/genre fields, and null values.
+1. Create the table by executing `Schemas.sql` in a compatible SQL environment.
+2. Load `netflix_titles.csv` and verify data types.
+3. Run `Solutions of 15 business problems.sql`.
+4. Inspect the output for each query and validate date parsing and multi-value fields.
+5. Save selected query results to include a verified findings table.
 
-Database-specific syntax may require adjustment depending on the SQL engine.
+## SQL Skills Demonstrated
+Schema design · Filtering · Aggregation · Window functions · CTEs · String parsing · Null checks · Date filtering · Top-N analysis · Business-question framing
 
-## Interpretation Limits
-- Catalogue metadata does not show actual audience views or profitability.
-- Multi-country and multi-genre titles can be counted differently depending on query logic.
-- Keyword searches are heuristic and should not be treated as a reliable content-classification model.
-- Report only numerical findings that have been reproduced by running the SQL.
+## Quality Checks & Limitations
+- Check for duplicate show IDs and missing values.
+- Split country and genre values before counting each category.
+- Confirm the date format expected by the database engine.
+- Do not interpret catalogue metadata as audience engagement or revenue.
+- Validate query output before including figures in a portfolio presentation.
 
-## Skills Demonstrated
-SQL schema design · Querying · Aggregation · Filtering · Data exploration · Text handling · Data-quality checks
+## Next Steps
+- Add screenshots of representative query outputs.
+- Consolidate duplicate analysis with the canonical Netflix repository.
+- Add a reproducible setup guide and data dictionary.
+- Include three to five verified findings with the exact query behind each one.
 
 ## Author
-**Yazdan Ahmed**  
-[GitHub Portfolio](https://github.com/YazdanAhmedData)
+**Yazdan Ahmed** · [GitHub Portfolio](https://github.com/YazdanAhmedData)
